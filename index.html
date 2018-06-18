@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" manifest="set.manifest">
+	<head>
+		<title>Set</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+		<link rel="apple-touch-icon" href="icon.png"/>
+		<!-- <link rel="apple-touch-startup-image" href="startup.png" /> -->
+		<link rel="stylesheet" type="text/css" href="assets/style.css"/>
+	</head>
+
+	<body>
+
+		<div id="nav">
+			<a id="pause" onclick="toggletimer()" class="button" data-icon="5">Pause</a>
+			<a id="add" onclick="addplayers()" class="button" data-icon="+">Add Players</a>
+			<a id="find" onclick="findmatch(1)" class="button" data-icon="|">Calculating</a>
+			<a id="shut" onclick="getmatch()" class="button" data-icon="|">Next Set</a>
+			<div id="players"></div>
+		</div>
+		
+		<b id="count">69</b>
+
+		<div id="game">
+			<div id="overlay"><i></i><i></i><a id="redeal" onclick="redeal()" class="button" data-icon="r">Re-Deal</a></div>
+
+			<a id="r1c1" onclick="toggleselect('r1c1');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r1c2" onclick="toggleselect('r1c2');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r1c3" onclick="toggleselect('r1c3');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r1c4" onclick="toggleselect('r1c4');"><img src="assets/img/blank.svg" alt=""/></a>
+
+			<a id="r2c1" onclick="toggleselect('r2c1');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r2c2" onclick="toggleselect('r2c2');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r2c3" onclick="toggleselect('r2c3');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r2c4" onclick="toggleselect('r2c4');"><img src="assets/img/blank.svg" alt=""/></a>
+
+			<a id="r3c1" onclick="toggleselect('r3c1');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r3c2" onclick="toggleselect('r3c2');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r3c3" onclick="toggleselect('r3c3');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r3c4" onclick="toggleselect('r3c4');"><img src="assets/img/blank.svg" alt=""/></a>
+
+			<a id="r4c1" onclick="toggleselect('r4c1');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r4c2" onclick="toggleselect('r4c2');"><img src="assets/img/blank.svg" alt=""/></a>
+			<a id="r4c3" onclick="toggleselect('r4c3');"><img src="assets/img/blank.svg" alt=""/></a>
+		</div>
+
+		<div id="end">
+			<h1 id="winner">Game Over!</h1>
+			<p id="total">Game completed in <b id="totaltime"></b></p><br/>
+			<p>Average<b id="averagetime"></b></p>
+			<p>Quickest<b id="fasttime"></b></p>
+			<p>Longest<b id="slowtime"></b></p>
+			<a id="replay" onclick="replay()" class="button" data-icon="r">Play Again</a>
+		</div>
+		<script src="assets/set.min.js"></script>
+		<script src="assets/fastclick.js"></script>
+		<script>new FastClick(document.body);</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,84 @@
+@font-face {font-family:'pictos'; src:url('fonts/pictos.eot'); src:url('fonts/pictos.eot?#iefix') format('embedded-opentype'), url('fonts/pictos.woff') format('woff'), url('fonts/pictos.ttf') format('truetype'), url('fonts/pictos.svg#PictosRegular') format('svg'); font-weight:normal; font-style:normal;}
+
+body {background:#eee; color:#333; font:12px sans-serif; margin:0; padding:0; text-align:center; user-select:none; -moz-user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;}
+*[data-icon]:before, .button:before {content:attr(data-icon); display:inline-block; font:1.25em/0 pictos,sans-serif; margin-right:.5em; vertical-align:text-top;}
+.button {background-color:#333; color:#fff; font-weight:bold; min-width:70px; border:1px solid rgba(0,0,0,.5); box-shadow:inset 0px 0px 0px 1px rgba(255,255,255,.25), 0 1px 1px rgba(255,255,255,.65); border-radius:.35em; padding:.5em; cursor:pointer; text-shadow: 0px -1px 1px rgba(0,0,0,.75);}
+.button:active {box-shadow:inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(255,255,255,.65); }
+ 
+ /* top nav */
+	#nav {height:1%; margin-bottom:2%; overflow:hidden; padding:10px; vertical-align:middle; z-index:6;}
+	#nav span, .button {display:inline-block;}
+	#pause {background-color:#248; float:left;}
+	body.pause #pause {background-color:#284;}
+	body.pause #pause:before {content:'4';}
+	#find {background-color:#284; float:right;}
+	#shut {background-color:#729; display:none;}
+
+/* scoreboard */
+	#players, #players div {display:inline-block;}
+	#players a {margin-right:2em}
+	#players a:last-child {margin:0;}
+	#players s {display:block; font-size:1.5em; margin-top:2px; text-decoration:none;}
+	#players .button:before {content:'+';}
+	#players h4 {margin:0 0 .3em;}
+
+/* cards */
+	#game {position:relative;}
+	#game.wide > a {width:19%;}
+	#game.tall > a {width:27%;}
+	#game > a {background:#fff; border:8px solid #fff; width:19%; margin:1%; display:inline-block; vertical-align:middle; cursor:pointer; border-radius:10px; box-shadow:2px 2px 7px rgba(0,0,0,.5);}
+	#game > a:hover {border-color:#ddd;}
+	#game > a img {width:30%;}
+	#game > a.active {border-color:#fc0;} 
+	#game > a.find {border-color:#284;}
+	#game > a.hide {display:none;}
+	#game > a#r4c1, #game > a#r4c2, #game > a#r4c3 {display:none;}
+	#game > a:empty {visibility:hidden;}
+	@media only screen and (max-device-width:480px) {#game.tall > a {width:25%;}}
+
+/* end game */
+	#end {background:#000; border-radius:5px; box-shadow:0 .5em 1em rgba(0,0,0,.75); color:#eee; width:60%; padding:2em; position:absolute; top:17%; left:17%; z-index:20;}
+	#end #winner {-webkit-text-stroke:1px rgba(255,255,255,.3);}
+	#end p {width:30%;}
+	#end p {display:inline-block; margin:0 0 .5em}
+	#end p b {display:block;}
+	#end p b:after {content:' seconds';}
+	#end #total {font-size:1.5em; margin-bottom:1.5em; width:auto;}
+	#end #total b {display:inline-block;}
+	#replay {background-color:#d00; font-size:1.5em; margin-top:1em;}
+
+/* pause overlay */
+	#end, #redeal, #overlay {display:none;}
+	body.pause #redeal {display:inline-block;}
+	body.pause #overlay {display:block;}
+	#overlay {background:#eee; border-bottom:10px solid #eee; color:#000; opacity:.99; position:absolute; height:100%; width:100%; z-index:5;}
+	#overlay i {background:rgba(0,0,0,.1); display:block; height:100%; width:20%; position:absolute; left:25%; z-index:-1}
+	#game.tall #overlay i {height:60% !important;}
+	#overlay i:nth-child(2) {left:55%;}
+	#redeal {background-color:#d00; font-size:30px; margin-top:10%;}
+	#count {background:#000; color:#fff; font:bold 12px sans-serif; padding:.5em 1em; position:absolute; bottom:0; left:50%; margin-left:-67px; border-radius:5px 5px 0 0; box-shadow:0 -1px 9px rgba(0,0,0,.5); width:110px; z-index:11; visibility:hidden; opacity:0; -webkit-transition:1s linear all;  -moz-transition:1s linear all;}
+	#count.active {visibility:visible; opacity:.85; -webkit-transition:opacity 1s linear;}
+	#count:after {content:' cards remain';}
+
+/* css3 */
+	#nav {background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.03, rgb(214,214,214)), color-stop(0.76, rgb(153,153,153))); 
+	background-image: -moz-linear-gradient(center top, rgb(214,214,214) 3%, rgb(153,153,153) 76%);
+	box-shadow:inset 0 0 1px #000;}
+	.button {
+		background-image:-webkit-linear-gradient(top, rgba(255,255,255,.35), rgba(0,0,0,.1));
+		background-image:-ms-linear-gradient(top,     rgba(255,255,255,.35), rgba(0,0,0,.1));
+		background-image:-moz-linear-gradient(top,    rgba(255,255,255,.35), rgba(0,0,0,.1));
+		background-image:linear-gradient(top,         rgba(255,255,255,.35), rgba(0,0,0,.1));
+	}
+
+body.end #game > a {
+  -webkit-animation-name: rotateThis;
+  -webkit-animation-duration:2s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes rotateThis {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+} 
